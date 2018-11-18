@@ -26,7 +26,7 @@ public class Accueil extends Panneau {
 	private int posBallX = -65;
 	private int posBallY = 520;
 	private int posFlecheX = 210;
-	private int posFlecheY = 230;
+	private int posFlecheY = 330;
 	private String path = "src//img//";
 	private String entrer = "";
 	private String continuer = "";
@@ -59,11 +59,15 @@ public class Accueil extends Panneau {
 			g.drawImage(ImageIO.read(new File(path+fleche)), this.posFlecheX, this.posFlecheY, 25, 25, this);
 		} catch (IOException e) {
 		}
+		try {
+			g.drawImage(ImageIO.read(new File(path+"title.png")), 80, 50, 580, 209, this);
+		} catch (IOException e) {
+		}
 		Font font = new Font("Courier",Font.BOLD, 30);
 		g.setFont(font);
 		g.setColor(Color.black);
-		g.drawString(entrer, 250, 250);
-		g.drawString(continuer, 250, 300);
+		g.drawString(entrer, 250, 350);
+		g.drawString(continuer, 250, 400);
 	}
 	
 	public String getContinuer() {

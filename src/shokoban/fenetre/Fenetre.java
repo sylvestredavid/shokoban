@@ -111,7 +111,7 @@ public class Fenetre extends JFrame implements KeyListener {
 			}
 
 		}
-		if (acc.getPosFlecheY() == 230) { // si la fleche est a la coordonnee Y de 230, on commence au premier niveau
+		if (acc.getPosFlecheY() == 330) { // si la fleche est a la coordonnee Y de 230, on commence au premier niveau
 			pan = panneaux[i]; // on commence a l'index 0
 		} else if (user.continuer() != 0) { // sinon, si le fichier texte ne retourne pas 0
 			i = user.continuer();
@@ -304,10 +304,10 @@ public class Fenetre extends JFrame implements KeyListener {
 		}
 
 		if (e.getKeyCode() == 40 && user.continuer() != 0)
-			acc.setPosFlecheY(280);
+			acc.setPosFlecheY(380);
 
 		if (e.getKeyCode() == 38)
-			acc.setPosFlecheY(230);
+			acc.setPosFlecheY(330);
 
 	}
 
