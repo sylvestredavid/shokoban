@@ -44,16 +44,27 @@ public class FenetreCreator extends JFrame implements KeyListener {
 			int[] bloc = {p.getPosX(), p.getPosY(), 0};
 			posBloc[i] = bloc;
 			p.setPosBloc(posBloc);
-			p.create(bloc);
 			i++;
+		}
+		
+		if(e.getKeyChar() == 'd') {
+			for (int[] bloc : posBloc) {
+				if(bloc[0] == p.getPosX() && bloc[1] == p.getPosY()) {
+					bloc[0] = -100;
+					bloc[1] = -100;
+				}
+			}
 		}
 		
 		if(e.getKeyChar() == 'c') {
 			int[] bloc = {p.getPosX(), p.getPosY(), 1};
 			posBloc[i] = bloc;
 			p.setPosBloc(posBloc);
-			p.create(bloc);
 			i++;
+		}
+		
+		if(e.getKeyCode() == 10) {
+			p.create(p.getPosBloc());
 		}
 			
 		p.repaint();

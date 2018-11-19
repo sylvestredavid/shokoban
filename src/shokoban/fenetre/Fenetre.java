@@ -2,6 +2,8 @@ package shokoban.fenetre;
 
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -14,7 +16,7 @@ import shokoban.niveaux.NiveauUn;
 import shokoban.niveaux.Panneau;
 import shokoban.users.User;
 
-public class Fenetre extends JFrame implements KeyListener {
+public class Fenetre extends JFrame implements KeyListener, MouseListener {
 	/**
 	 * 
 	 */
@@ -29,12 +31,13 @@ public class Fenetre extends JFrame implements KeyListener {
 
 	public Fenetre() {
 		this.setTitle("Shokoban");
-		this.setSize(720, 745);
+		this.setSize(725, 695);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.addKeyListener(this);
+		this.addMouseListener(this);
 		go();
 	}
 
@@ -264,8 +267,8 @@ public class Fenetre extends JFrame implements KeyListener {
 
 	public boolean gagner() {
 		// si les coordonnées du bonhommes se retrouvent sur les coordonnées du point de fin, c'est gagné !
-		if ((pan.getPosBallX() + 40 >= pan.getPosEndX() && pan.getPosBallX() <= pan.getPosEndX() + 40)
-				&& pan.getPosBallY() >= pan.getPosEndY()) {
+		if ((pan.getPosBallX() + 20 >= pan.getPosEndX() && pan.getPosBallX() <= pan.getPosEndX() + 20)
+				&& (pan.getPosBallY()+40 >= pan.getPosEndY() && pan.getPosBallY() <= pan.getPosEndY() + 40)) {
 			pan.setGagner("Gagné !");
 			return true;
 		} else {
@@ -329,5 +332,36 @@ public class Fenetre extends JFrame implements KeyListener {
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
 
+	}
+
+	@Override
+	public void mouseClicked(MouseEvent e) {
+		System.out.println(e.getX());
+		System.out.println(e.getY());
+		
+	}
+
+	@Override
+	public void mouseEntered(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseExited(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mousePressed(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void mouseReleased(MouseEvent arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -58,18 +58,20 @@ public class Creator extends JPanel {
 		}
 	}
 	
-	public void create(int[] bloc) {
+	public void create(int[][] blocs) {
 		BufferedWriter out = null;
 		try {
             
             // 1) Instanciation de l'objet
-            out = new BufferedWriter(new FileWriter(new File("src//fenetre//creator.txt")));
+            out = new BufferedWriter(new FileWriter(new File("src//fichiers//creator.txt"), true));
           
             try {
               
                  // 2) Utilisation de l'objet
-                 out.write(String.valueOf(bloc));
-              
+            	for (int[] bloc : blocs) {
+            		out.write("{"+String.valueOf(bloc[0])+","+String.valueOf(bloc[1])+","+String.valueOf(bloc[2])+"},");					
+				}
+                 
             } finally {
               
                  // 3) Libération de la ressource exploitée par l'objet
