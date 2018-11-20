@@ -16,7 +16,7 @@ import shokoban.niveaux.NiveauUn;
 import shokoban.niveaux.Panneau;
 import shokoban.users.User;
 
-public class Fenetre extends JFrame implements KeyListener, MouseListener {
+public class Fenetre extends JFrame implements KeyListener {
 	/**
 	 * 
 	 */
@@ -37,7 +37,6 @@ public class Fenetre extends JFrame implements KeyListener, MouseListener {
 		this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		this.setVisible(true);
 		this.addKeyListener(this);
-		this.addMouseListener(this);
 		go();
 	}
 
@@ -151,7 +150,7 @@ public class Fenetre extends JFrame implements KeyListener, MouseListener {
 			}
 			pan.repaint();
 			try {
-				Thread.sleep(2);
+				Thread.sleep(5);
 			} catch (InterruptedException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -316,15 +315,6 @@ public class Fenetre extends JFrame implements KeyListener, MouseListener {
 
 	@Override
 	public void keyReleased(KeyEvent e) {
-		if (e.getKeyCode() == 37 && !(pan.getPosBallX() < 1)) {
-			pan.setImg("gauche1.png");
-		} else if (e.getKeyCode() == 38 && !(pan.getPosBallY() < 1)) {
-			pan.setImg("haut1.png");
-		} else if (e.getKeyCode() == 39 && !(pan.getPosBallX() > pan.getWidth() - 40)) {
-			pan.setImg("droite1.png");
-		} else if (e.getKeyCode() == 40 && !(pan.getPosBallY() > pan.getHeight() - 40)) {
-			pan.setImg("stop.png");
-		}
 
 	}
 
@@ -334,34 +324,5 @@ public class Fenetre extends JFrame implements KeyListener, MouseListener {
 
 	}
 
-	@Override
-	public void mouseClicked(MouseEvent e) {
-		System.out.println(e.getX());
-		System.out.println(e.getY());
-		
-	}
 
-	@Override
-	public void mouseEntered(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseExited(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mousePressed(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void mouseReleased(MouseEvent arg0) {
-		// TODO Auto-generated method stub
-		
-	}
 }
